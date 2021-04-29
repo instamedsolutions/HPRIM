@@ -1,9 +1,9 @@
 <?php
 
-namespace Aranyasen\HL7\Tests\Segments;
+namespace akarah\HL7\Tests\Segments;
 
-use Aranyasen\HL7\Segments\PID;
-use Aranyasen\HL7\Tests\TestCase;
+use akarah\HL7\Segments\PID;
+use akarah\HL7\Tests\TestCase;
 use InvalidArgumentException;
 
 class PIDTest extends TestCase

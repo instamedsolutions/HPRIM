@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Aranyasen\HL7;
+namespace akarah\HL7;
 
-use Aranyasen\Exceptions\HL7ConnectionException;
-use Aranyasen\Exceptions\HL7Exception;
+use akarah\Exceptions\HL7ConnectionException;
+use akarah\Exceptions\HL7Exception;
 use Exception;
 use ReflectionException;
 

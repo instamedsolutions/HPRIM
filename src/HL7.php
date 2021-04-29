@@ -1,10 +1,10 @@
 <?php
 
-namespace Aranyasen;
+namespace akarah;
 
 use InvalidArgumentException;
-use Aranyasen\HL7\Message;
-use Aranyasen\HL7\Segments\MSH;
+use akarah\HL7\Message;
+use akarah\HL7\Segments\MSH;
 
 /**
  * The HL7 class is a factory class for HL7 messages.
@@ -92,7 +92,6 @@ class HL7
 
         return $this->setGlobal('SUBCOMPONENT_SEPARATOR', $value);
     }
-
 
     /**
      * Set the repetition separator to be used by the factory. Should be a single character. Default: ~

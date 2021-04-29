@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Aranyasen\HL7\Tests\Segments;
+namespace akarah\HL7\Tests\Segments;
 
-use Aranyasen\HL7\Segments\MSH;
-use Aranyasen\HL7\Tests\TestCase;
+use akarah\HL7\Segments\MSH;
+use akarah\HL7\Tests\TestCase;
 
 class MSHTest extends TestCase
 {

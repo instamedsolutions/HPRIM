@@ -1,10 +1,10 @@
 <?php
 
-namespace Aranyasen\HL7\Tests;
+namespace akarah\HL7\Tests;
 
-use Aranyasen\Exceptions\HL7Exception;
-use Aranyasen\HL7\Message;
-use Aranyasen\HL7\Messages\ACK;
+use akarah\Exceptions\HL7Exception;
+use akarah\HL7\Message;
+use akarah\HL7\Messages\ACK;
 
 /**
  * Trait Hl7ListenerTrait
@@ -12,7 +12,7 @@ use Aranyasen\HL7\Messages\ACK;
  * Create a TCP socket server to receive HL7 messages. It responds to HL7 messages with an ACK
  * It also creates a pipe so client can get back exactly what it sent. Useful for testing...
  * To close the server, send "\n" or "shutdown\n"
- * @package Aranyasen\HL7\Tests
+ * @package akarah\HL7\Tests
  */
 trait Hl7ListenerTrait
 {

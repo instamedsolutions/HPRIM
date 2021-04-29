@@ -1,9 +1,9 @@
 <?php
 
-namespace Aranyasen\HL7;
+namespace akarah\HL7;
 
-use Aranyasen\Exceptions\HL7Exception;
-use Aranyasen\HL7\Segments\MSH;
+use akarah\Exceptions\HL7Exception;
+use akarah\HL7\Segments\MSH;
 
 trait MessageHelpersTrait
 {

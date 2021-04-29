@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Aranyasen\HL7\Tests;
+namespace akarah\HL7\Tests;
 
-use Aranyasen\HL7\Segment;
+use akarah\HL7\Segment;
 
 class SegmentTest extends TestCase
 {

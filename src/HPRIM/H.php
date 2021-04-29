@@ -23,7 +23,7 @@ use akarah\HL7\Segment;
  *
  * Reference: https://corepointhealth.com/resource-center/hl7-resources/hl7-msh-message-header
  */
-class H extends Segment
+class MSH extends Segment
 {
     /**
      * Create an instance of the MSH segment.
@@ -39,7 +39,7 @@ class H extends Segment
      */
     public function __construct(array $fields = null, array $hl7Globals = null)
     {
-        parent::__construct('H', $fields);
+        parent::__construct('MSH', $fields);
 
         if (isset($fields)) { // We're done if MSH fields were provided
             return;

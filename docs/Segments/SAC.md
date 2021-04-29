@@ -1,4 +1,4 @@
-# Aranyasen\HL7\Segments\SAC  
+# akarah\HL7\Segments\SAC  
 
 SAC segment class
 Ref: https://www.interfaceware.com/hl7-standard/hl7-segment-SAC.html
@@ -7,7 +7,7 @@ Ref: https://www.interfaceware.com/hl7-standard/hl7-segment-SAC.html
 
 ## Extend:
 
-Aranyasen\HL7\Segment
+akarah\HL7\Segment
 
 ## Methods
 

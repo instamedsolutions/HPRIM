@@ -1,6 +1,6 @@
 <?php
 
-namespace Aranyasen\Exceptions;
+namespace akarah\Exceptions;
 
 use Exception;
 

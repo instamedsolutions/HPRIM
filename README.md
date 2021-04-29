@@ -1,8 +1,8 @@
 <p align="center">
 <a href="https://travis-ci.org/senaranya/HL7"><img src="https://travis-ci.org/senaranya/HL7.svg?branch=master" alt="Build Status"></a>
-<a href="https://packagist.org/packages/aranyasen/hl7"><img src="https://poser.pugx.org/aranyasen/hl7/downloads" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/aranyasen/hl7"><img src="https://poser.pugx.org/aranyasen/hl7/v/stable" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/aranyasen/hl7"><img src="https://poser.pugx.org/aranyasen/hl7/license" alt="License"></a>
+<a href="https://packagist.org/packages/akarah/hl7"><img src="https://poser.pugx.org/akarah/hl7/downloads" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/akarah/hl7"><img src="https://poser.pugx.org/akarah/hl7/v/stable" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/akarah/hl7"><img src="https://poser.pugx.org/akarah/hl7/license" alt="License"></a>
 </p>
 
 **Important: Supported PHP version has been updated to 7.3+. Last supported versions: for PHP 7.2 => [2.0.2](https://github.com/senaranya/HL7/tree/2.0.2), for PHP 7.0 or 7.1 => [1.5.4](https://github.com/senaranya/HL7/tree/1.5.4)**
@@ -14,16 +14,16 @@ A PHP-based HL7 v2.x Parsing, Generation and Sending library, inspired from the 
 ## Installation
 
 ```bash
-composer require aranyasen/hl7
+composer require akarah/hl7
 ```
 
 ## Usage
 ### Import library
 ```php
 // First, import classes from the library as needed...
-use Aranyasen\HL7\Message; // If Message is used
-use Aranyasen\HL7\Segment; // If Segment is used
-use Aranyasen\HL7\Segments\MSH; // If MSH is used
+use akarah\HL7\Message; // If Message is used
+use akarah\HL7\Segment; // If Segment is used
+use akarah\HL7\Segments\MSH; // If MSH is used
 // ... and so on
 ```
 

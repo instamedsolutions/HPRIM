@@ -1,13 +1,13 @@
 {
-    "name": "aranyasen/hl7",
-    "description": "HL7 parser, generator and sender.",
+    "name": "akarah/hprim",
+    "description": "HPRIM parser, generator and sender.",
     "type": "library",
     "license": "MIT",
-    "keyword": ["HL7", "Parse", "Generate", "Send"],
+    "keyword": ["HPRIM", "Parse", "Generate", "Send"],
     "authors": [
         {
-            "name": "Aranya Sen",
-            "email": "sen.aranya@gmail.com",
+            "name": "AkarahHPRIM",
+            "email": "hello@akarah.com",
             "role": "Owner"
         }
     ],
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Aranyasen\\": "src/"
+            "akarah\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Aranyasen\\HL7\\Tests\\": "tests/"
+            "akarah\\HL7\\Tests\\": "tests/"
         }
     },
     "extra": {

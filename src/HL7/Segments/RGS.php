@@ -1,8 +1,8 @@
 <?php
 
-namespace Aranyasen\HL7\Segments;
+namespace akarah\HL7\Segments;
 
-use Aranyasen\HL7\Segment;
+use akarah\HL7\Segment;
 
 /**
  * RGS segment class

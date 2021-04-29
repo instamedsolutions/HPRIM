@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Aranyasen\HL7\Tests;
+namespace akarah\HL7\Tests;
 
-use Aranyasen\Exceptions\HL7ConnectionException;
-use Aranyasen\Exceptions\HL7Exception;
-use Aranyasen\HL7\Message;
-use Aranyasen\HL7\Connection;
+use akarah\Exceptions\HL7ConnectionException;
+use akarah\Exceptions\HL7Exception;
+use akarah\HL7\Message;
+use akarah\HL7\Connection;
 use RuntimeException;
 
 class ConnectionTest extends TestCase
