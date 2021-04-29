@@ -1,8 +1,8 @@
 <?php
 
-namespace akarah\HL7\Segments;
+namespace akarah\HPRIM\Segments;
 
-use akarah\HL7\Segment;
+use akarah\HPRIM\Segment;
 
 /**
  * MSH (message header) segment class
