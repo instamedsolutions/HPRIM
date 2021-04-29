@@ -23,7 +23,8 @@ composer require Akarah/hprim
 // First, import classes from the library as needed...
 use Akarah\HPRIM\Message;
 use Akarah\HPRIM\Segment;
-use Akarah\HPRIM\Segments\MSH;
+use Akarah\HPRIM\Segments\H;
+use Akarah\HPRIM\Segments\P;
 ```
 
 ### Parsing
