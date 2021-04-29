@@ -1,4 +1,4 @@
-# akarah\HL7\Segments\MSH  
+# Akarah\HL7\Segments\MSH  
 
 MSH (message header) segment class
 
@@ -22,7 +22,7 @@ Reference: https://corepointhealth.com/resource-center/hl7-resources/hl7-msh-mes
 
 ## Extend:
 
-akarah\HL7\Segment
+Akarah\HL7\Segment
 
 ## Methods
 

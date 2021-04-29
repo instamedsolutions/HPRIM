@@ -1,4 +1,4 @@
-# akarah\HL7\Message  
+# Akarah\HL7\Message  
 
 Class specifying the HL7 message, both request and response.
 

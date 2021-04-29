@@ -1,4 +1,4 @@
-# akarah\HL7\Segments\EQU  
+# Akarah\HL7\Segments\EQU  
 
 EQU segment class
 Ref: https://www.interfaceware.com/hl7-standard/hl7-segment-EQU.html
@@ -7,7 +7,7 @@ Ref: https://www.interfaceware.com/hl7-standard/hl7-segment-EQU.html
 
 ## Extend:
 
-akarah\HL7\Segment
+Akarah\HL7\Segment
 
 ## Methods
 

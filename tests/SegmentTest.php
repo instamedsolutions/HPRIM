@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace akarah\HL7\Tests;
+namespace Akarah\HL7\Tests;
 
-use akarah\HL7\Segment;
+use Akarah\HL7\Segment;
 
 class SegmentTest extends TestCase
 {

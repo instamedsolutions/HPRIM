@@ -1,9 +1,9 @@
 <?php
 
-namespace akarah\HL7\Tests\Segments;
+namespace Akarah\HL7\Tests\Segments;
 
-use akarah\HL7\Segments\PID;
-use akarah\HL7\Tests\TestCase;
+use Akarah\HL7\Segments\PID;
+use Akarah\HL7\Tests\TestCase;
 use InvalidArgumentException;
 
 class PIDTest extends TestCase

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace akarah\HL7\Tests;
+namespace Akarah\HL7\Tests;
 
-use akarah\Exceptions\HL7Exception;
-use akarah\HL7\Message;
-use akarah\HL7\Segment;
-use akarah\HL7\Segments\MSH;
-use akarah\HL7\Segments\PID;
+use Akarah\Exceptions\HL7Exception;
+use Akarah\HL7\Message;
+use Akarah\HL7\Segment;
+use Akarah\HL7\Segments\MSH;
+use Akarah\HL7\Segments\PID;
 use Exception;
 use InvalidArgumentException;
 use DMS\PHPUnitExtensions\ArraySubset\Assert;

@@ -1,4 +1,4 @@
-# akarah\HL7\Segments\PV1  
+# Akarah\HL7\Segments\PV1  
 
 PV1 segment class
 Ref: https://corepointhealth.com/resource-center/hl7-resources/hl7-pv1-patient-visit-information-segment
@@ -7,7 +7,7 @@ Ref: https://corepointhealth.com/resource-center/hl7-resources/hl7-pv1-patient-v
 
 ## Extend:
 
-akarah\HL7\Segment
+Akarah\HL7\Segment
 
 ## Methods
 

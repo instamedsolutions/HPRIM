@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace akarah\HL7;
+namespace Akarah\HL7;
 
 use InvalidArgumentException;
 

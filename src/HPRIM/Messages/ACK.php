@@ -1,11 +1,11 @@
 <?php
 
-namespace akarah\HPRIM\Messages;
+namespace Akarah\HPRIM\Messages;
 
-use akarah\HL7\Message;
-use akarah\HL7\Segment;
-use akarah\HL7\Segments\MSA;
-use akarah\HL7\Segments\MSH;
+use Akarah\HL7\Message;
+use Akarah\HL7\Segment;
+use Akarah\HL7\Segments\MSA;
+use Akarah\HL7\Segments\MSH;
 
 class ACK extends Message
 {

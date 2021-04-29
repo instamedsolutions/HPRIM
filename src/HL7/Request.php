@@ -1,7 +1,7 @@
 <?php
 
 
-namespace akarah\HL7;
+namespace Akarah\HL7;
 
 
 class Request

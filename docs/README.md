@@ -1,4 +1,4 @@
-# akarah\HL7
+# Akarah\HL7
 
 * [Connection](Connection.md) 
 * [Message](Message.md) 

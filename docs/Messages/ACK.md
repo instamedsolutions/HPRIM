@@ -1,4 +1,4 @@
-# akarah\HL7\Messages\ACK  
+# Akarah\HL7\Messages\ACK  
 
 
 
@@ -6,7 +6,7 @@
 
 ## Extend:
 
-akarah\HL7\Message
+Akarah\HL7\Message
 
 ## Methods
 

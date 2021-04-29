@@ -1,4 +1,4 @@
-# akarah\HL7\Segments\DG1  
+# Akarah\HL7\Segments\DG1  
 
 DG1 segment class
 Ref: http://hl7-definition.caristix.com:9010/HL7%20v2.3.1/segment/DG1
@@ -7,7 +7,7 @@ Ref: http://hl7-definition.caristix.com:9010/HL7%20v2.3.1/segment/DG1
 
 ## Extend:
 
-akarah\HL7\Segment
+Akarah\HL7\Segment
 
 ## Methods
 

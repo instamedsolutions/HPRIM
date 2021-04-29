@@ -1,4 +1,4 @@
-# akarah\HL7\Connection  
+# Akarah\HL7\Connection  
 
 Usage:
 ```php

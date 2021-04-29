@@ -1,4 +1,4 @@
-# akarah\HL7\Segments\PID  
+# Akarah\HL7\Segments\PID  
 
 PID segment class
 
@@ -6,7 +6,7 @@ PID segment class
 
 ## Extend:
 
-akarah\HL7\Segment
+Akarah\HL7\Segment
 
 ## Methods
 

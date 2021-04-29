@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace akarah\HL7;
+namespace Akarah\HL7;
 
-use akarah\Exceptions\HL7Exception;
-//use akarah\HL7\MessageHelpersTrait;
+use Akarah\Exceptions\HL7Exception;
+//use Akarah\HL7\MessageHelpersTrait;
 use InvalidArgumentException;
 
 /**
@@ -132,7 +132,7 @@ class Message
                 $segment = null;
 
                 // If a class exists for the segment under segments/, (e.g., MSH)
-                $className = "akarah\\HL7\\Segments\\$segmentName";
+                $className = "Akarah\\HL7\\Segments\\$segmentName";
                 if (class_exists($className)) {
                     if ($segmentName === 'MSH') {
                         array_unshift($fields, $this->fieldSeparator); # First field for MSH is '|'
@@ -432,7 +432,7 @@ class Message
 
         // Go through each available segment class and reset its ID
         foreach ($segments as $file) { // ['OBR', 'PID', 'OBX', 'IN1'...]
-            $className = "akarah\\HL7\\Segments\\" . pathinfo($file, PATHINFO_FILENAME);
+            $className = "Akarah\\HL7\\Segments\\" . pathinfo($file, PATHINFO_FILENAME);
             if (class_exists($className) && method_exists($className, 'resetIndex')) {
                 $className::resetIndex();
             }

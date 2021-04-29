@@ -1,4 +1,4 @@
-# akarah\HL7\Segments\IN3  
+# Akarah\HL7\Segments\IN3  
 
 IN3 segment class
 Ref: http://hl7-definition.caristix.com:9010/Default.aspx?version=HL7+v2.5.1&segment=ORC
@@ -7,7 +7,7 @@ Ref: http://hl7-definition.caristix.com:9010/Default.aspx?version=HL7+v2.5.1&seg
 
 ## Extend:
 
-akarah\HL7\Segment
+Akarah\HL7\Segment
 
 ## Methods
 

@@ -1,4 +1,4 @@
-# akarah\HL7\Segments\OBR  
+# Akarah\HL7\Segments\OBR  
 
 OBR segment class
 Ref: https://corepointhealth.com/resource-center/hl7-resources/hl7-obr-segment
@@ -7,7 +7,7 @@ Ref: https://corepointhealth.com/resource-center/hl7-resources/hl7-obr-segment
 
 ## Extend:
 
-akarah\HL7\Segment
+Akarah\HL7\Segment
 
 ## Methods
 

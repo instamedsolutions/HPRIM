@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace akarah\HL7\Tests;
+namespace Akarah\HL7\Tests;
 
-use akarah\HL7\Message;
-use akarah\HL7\Messages\ACK;
-use akarah\HL7\Segments\MSH;
+use Akarah\HL7\Message;
+use Akarah\HL7\Messages\ACK;
+use Akarah\HL7\Segments\MSH;
 use Exception;
 
 class AckTest extends TestCase

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace akarah\HPRIM;
+namespace Akarah\HPRIM;
 
 
 class Response

@@ -1,8 +1,8 @@
 <?php
 
-namespace akarah\HL7\Segments;
+namespace Akarah\HL7\Segments;
 
-use akarah\HL7\Segment;
+use Akarah\HL7\Segment;
 
 /**
  * TQ1 segment class

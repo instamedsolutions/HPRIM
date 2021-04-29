@@ -1,10 +1,10 @@
 <?php
 
-namespace akarah;
+namespace Akarah;
 
 use InvalidArgumentException;
-use akarah\HL7\Message;
-use akarah\HL7\Segments\MSH;
+use Akarah\HL7\Message;
+use Akarah\HL7\Segments\MSH;
 
 /**
  * The HL7 class is a factory class for HL7 messages.
@@ -21,6 +21,8 @@ class HL7
      */
     protected $hl7Globals;
 
+    protected $hprimGlobals;
+
     /**
      * Create a new instance of the HL7 factory, and set global
      * defaults.
@@ -35,6 +37,15 @@ class HL7
         $this->hl7Globals['ESCAPE_CHARACTER'] = '\\';
         $this->hl7Globals['SUBCOMPONENT_SEPARATOR'] = '&';
         $this->hl7Globals['HL7_VERSION'] = '2.2';
+
+        $this->hprimGlobals['SEGMENT_SEPARATOR'] = '\n';
+        $this->hprimGlobals['FIELD_SEPARATOR'] = '|';
+        $this->hprimGlobals['NULL'] = '""';
+        $this->hprimGlobals['COMPONENT_SEPARATOR'] = '^';
+        $this->hprimGlobals['REPETITION_SEPARATOR'] = '~';
+        $this->hprimGlobals['ESCAPE_CHARACTER'] = '\\';
+        $this->hprimGlobals['SUBCOMPONENT_SEPARATOR'] = '&';
+        $this->hprimGlobals['HL7_VERSION'] = '2.2';
     }
 
     /**

@@ -3,7 +3,6 @@
     "description": "HPRIM parser, generator and sender.",
     "type": "library",
     "license": "MIT",
-    "keyword": ["HPRIM", "Parse", "Generate", "Send"],
     "authors": [
         {
             "name": "AkarahHPRIM",
@@ -25,12 +24,12 @@
     },
     "autoload": {
         "psr-4": {
-            "akarah\\": "src/"
+            "Akarah\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "akarah\\HL7\\Tests\\": "tests/"
+            "Akarah\\HL7\\Tests\\": "tests/"
         }
     },
     "extra": {

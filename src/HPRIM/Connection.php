@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace akarah\HPRIM;
+namespace Akarah\HPRIM;
 
-use akarah\Exceptions\HL7ConnectionException;
-use akarah\Exceptions\HL7Exception;
+use Akarah\Exceptions\HL7ConnectionException;
+use Akarah\Exceptions\HL7Exception;
 use Exception;
 use ReflectionException;
 

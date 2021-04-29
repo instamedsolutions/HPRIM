@@ -1,23 +1,23 @@
 <?php
 
-use akarah\HL7;
-use akarah\HL7\Segments\PV1;
-use akarah\HL7\Segments\ORC;
-use akarah\HL7\Segments\OBX;
-use akarah\HL7\Segments\OBR;
-use akarah\HL7\Segments\DG1;
-use akarah\HL7\Segments\NTE;
-use akarah\HL7\Segments\IN3;
-use akarah\HL7\Segments\IN1;
-use akarah\HL7\Segments\PID;
-use akarah\HL7\Segments\MSH;
-use akarah\HL7\Segments\EVN;
-use akarah\HL7\Segments\EQU;
-use akarah\HL7\Segments\SAC;
-use akarah\HL7\Segment;
-use akarah\HL7\Messages\ACK;
-use akarah\HL7\Message;
-use akarah\HL7\Connection;
+use Akarah\HL7;
+use Akarah\HL7\Segments\PV1;
+use Akarah\HL7\Segments\ORC;
+use Akarah\HL7\Segments\OBX;
+use Akarah\HL7\Segments\OBR;
+use Akarah\HL7\Segments\DG1;
+use Akarah\HL7\Segments\NTE;
+use Akarah\HL7\Segments\IN3;
+use Akarah\HL7\Segments\IN1;
+use Akarah\HL7\Segments\PID;
+use Akarah\HL7\Segments\MSH;
+use Akarah\HL7\Segments\EVN;
+use Akarah\HL7\Segments\EQU;
+use Akarah\HL7\Segments\SAC;
+use Akarah\HL7\Segment;
+use Akarah\HL7\Messages\ACK;
+use Akarah\HL7\Message;
+use Akarah\HL7\Connection;
 
 return (object)[
     'rootNamespace' => HL7::class,

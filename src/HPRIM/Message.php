@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace akarah\HPRIM;
+namespace Akarah\HPRIM;
 
-use akarah\Exceptions\HL7Exception;
-//use akarah\HL7\MessageHelpersTrait;
+use Akarah\Exceptions\HL7Exception;
+use Akarah\HPRIM\MessageHelpersTrait;
 use InvalidArgumentException;
 
 /**
- * Class specifying the HL7 message, both request and response.
+ * Class specifying the HPRIM message, both request and response.
  *
  * In general one needn't create an instance of the Message class directly, but use the HL7 factory class to create one.
  * When adding segments, note that the segment index starts at 0, so to get the first segment, do
@@ -132,7 +132,7 @@ class Message
                 $segment = null;
 
                 // If a class exists for the segment under segments/, (e.g., MSH)
-                $className = "akarah\\HL7\\Segments\\$segmentName";
+                $className = "Akarah\\HL7\\Segments\\$segmentName";
                 if (class_exists($className)) {
                     if ($segmentName === 'MSH') {
                         array_unshift($fields, $this->fieldSeparator); # First field for MSH is '|'
@@ -432,7 +432,7 @@ class Message
 
         // Go through each available segment class and reset its ID
         foreach ($segments as $file) { // ['OBR', 'PID', 'OBX', 'IN1'...]
-            $className = "akarah\\HL7\\Segments\\" . pathinfo($file, PATHINFO_FILENAME);
+            $className = "Akarah\\HL7\\Segments\\" . pathinfo($file, PATHINFO_FILENAME);
             if (class_exists($className) && method_exists($className, 'resetIndex')) {
                 $className::resetIndex();
             }

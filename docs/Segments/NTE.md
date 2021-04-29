@@ -1,4 +1,4 @@
-# akarah\HL7\Segments\NTE  
+# Akarah\HL7\Segments\NTE  
 
 NTE segment class
 Ref: https://corepointhealth.com/resource-center/hl7-resources/hl7-nte-notes-comments
@@ -7,7 +7,7 @@ Ref: https://corepointhealth.com/resource-center/hl7-resources/hl7-nte-notes-com
 
 ## Extend:
 
-akarah\HL7\Segment
+Akarah\HL7\Segment
 
 ## Methods
 

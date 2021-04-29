@@ -1,4 +1,4 @@
-# akarah\HL7\Segments\OBX  
+# Akarah\HL7\Segments\OBX  
 
 OBX segment class
 Ref: https://corepointhealth.com/resource-center/hl7-resources/hl7-obx-segment
@@ -7,7 +7,7 @@ Ref: https://corepointhealth.com/resource-center/hl7-resources/hl7-obx-segment
 
 ## Extend:
 
-akarah\HL7\Segment
+Akarah\HL7\Segment
 
 ## Methods
 
