@@ -7,6 +7,7 @@ require 'vendor/autoload.php';
 
 use Akarah\HPRIM\Segments\OBR;
 use Akarah\HPRIM\Message;
+use Akarah\HPRIM\Segments\C;
 use Akarah\HPRIM\Segments\H;
 use Akarah\HPRIM\Segments\L;
 use Akarah\HPRIM\Segments\P;
@@ -35,15 +36,17 @@ $msg2 = new Message();
 
 $headerSequencyH = new H();
 $patientIDP = new P();
-//AP
+//AP (F)
 //AC (F)
 $appointmentOBR = new OBR(); 
+$CommenttoAppointment = new C();
 //OBX (F)
 $endSequencyL = new L();
 
 $msg2->addSegment($headerSequencyH);
 $msg2->addSegment($patientIDP);
 $msg2->addSegment($appointmentOBR);
+$msg2->addSegment($CommenttoAppointment);
 $msg2->addSegment($endSequencyL);
 
 echo nl2br($msg2->toString(true) );

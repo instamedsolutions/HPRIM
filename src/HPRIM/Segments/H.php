@@ -33,8 +33,6 @@ class H extends Segment
      */
     public function __construct(array $fields = null, array $hprimGlobals = null)
     {
-        //TODO: Build default sequency
-        //TODO: Setter function
 
         // HOW TO BUILD A H SEGMENT ? 
         //0 : Header : H
@@ -54,11 +52,11 @@ class H extends Segment
 
         parent::__construct('H', $fields);
         $this->setField(2, '^~\\&');
-        $this->setField(4, '556859874');
-        $this->setField(5, 'ADM');
+        $this->setField(4, '556859874'); // id transmitter
+        $this->setField(5, 'ADM'); // TypeSequency
         $this->setField(6, 'TABLE HPRIM 1');
-        $this->setField(9, '98745968422');
-        $this->setField(12, '1.2');
+        $this->setField(9, '98745968422'); // id receiver
+        $this->setField(12, '1.2'); 
         $date = new DateTime();
         $this->setField(13, $date->format('Y-m-d H:i:s'));
 
@@ -75,19 +73,39 @@ class H extends Segment
         if (($index === 2) && strlen($value) !== 4) {
             return false;
         }
-
         return parent::setField($index, $value);
     }
 
+    //GETTER AND SETTER : 
     
     //SETTER FUNCTIONS 
-    public function setDateTimeOfMessage($value, int $position = 7)
+    public function setIdTransmitterInH($value, int $position = 4)
+    {
+        return $this->setField($position, $value);
+    }
+
+    public function setIdReceiverInH($value, int $position = 9)
+    {
+        return $this->setField($position, $value);
+    }
+
+    public function setTypeSequencyInH($value, int $position = 5)
     {
         return $this->setField($position, $value);
     }
 
     //GETTER FUNCTIONS
-    public function getDateTimeOfMessage(int $position = 7)
+    public function getIdTransmitterInH(int $position = 4)
+    {
+        return $this->getField($position);
+    }
+
+    public function getIdReceiverInH(int $position = 9)
+    {
+        return $this->getField($position);
+    }
+
+    public function getTypeSequencyInH(int $position = 5)
     {
         return $this->getField($position);
     }

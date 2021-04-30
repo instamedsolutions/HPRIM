@@ -18,7 +18,7 @@ class P extends Segment
      */
     public function __construct(array $fields = null, array $hprimGlobals = null)
     {
-        // HOW TO BUILD A SEGMENT PATIENT
+        // HOW TO BUILD A SEGMENT PATIENT ?
         //0 : Header type : P
         //1 : 1
         //2 : F
@@ -64,5 +64,89 @@ class P extends Segment
         }
 
         return parent::setField($index, $value);
+    }
+
+    // GETTER AND SETTER OK IN P SEGMENT
+
+    //SETTER FUNCTIONS 
+    public function setNameInP($value, int $position = 5)
+    {
+        return $this->setField($position, $value);
+    }
+
+    public function setBirthDateInP($value, int $position = 6)
+    {
+        return $this->setField($position, $value);
+    }
+
+    public function setSexeInP($value, int $position = 7)
+    {
+        return $this->setField($position, $value);
+    }
+
+    public function setAdresseInP($value, int $position = 9)
+    {
+        return $this->setField($position, $value);
+    }
+
+    public function setPhoneInP($value, int $position = 11)
+    {
+        return $this->setField($position, $value);
+    }
+
+    public function setSizeInP($value, int $position = 15)
+    {
+        return $this->setField($position, $value);
+    }
+
+    public function setWeightInP($value, int $position = 16)
+    {
+        return $this->setField($position, $value);
+    }
+
+    public function setImageInP($value, int $position = 17)
+    {
+        return $this->setField($position, $value);
+    }
+
+    //GETTER FUNCTIONS
+    public function getNameInP(int $position = 5)
+    {
+        return $this->getField($position);
+    }
+
+    public function getBirthDateInP(int $position = 6)
+    {
+        return $this->getField($position);
+    }
+
+    public function getSexeInP(int $position = 7)
+    {
+        return $this->getField($position);
+    }
+
+    public function getAdresseInP(int $position = 9)
+    {
+        return $this->getField($position);
+    }
+
+    public function getPhoneInP(int $position = 11)
+    {
+        return $this->getField($position);
+    }
+
+    public function getSizeInP(int $position = 15)
+    {
+        return $this->getField($position);
+    }
+
+    public function getWeightInP(int $position = 16)
+    {
+        return $this->getField($position);
+    }
+
+    public function getImageInP(int $position = 17)
+    {
+        return $this->getField($position);
     }
 }
