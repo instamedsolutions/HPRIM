@@ -34,12 +34,15 @@ class Segment
      */
     public function __construct(string $name, array $fields = null)
     {
-        // Is the name 3 upper case characters?
+        // Is the name 1 upper case characters?
+        
         /*
-        if ((!$name) || (\strlen($name) !== 3) || (strtoupper($name) !== $name)) {
-            throw new InvalidArgumentException("Segment name '$name' should be 3 characters and in uppercase");
+        if ((!$name) || (\strlen($name) !== 1) || (\strlen($name) !== 3) ||  (strtoupper($name) !== $name)) {
+            throw new InvalidArgumentException("Segment name '$name' should be 1 characters and in uppercase");
         }
         */
+        //TODO: add 3 uppercase head
+        
 
         $this->fields = [];
 
@@ -73,7 +76,7 @@ class Segment
      * @param string|array $value Value for field
      * @return boolean
      */
-    public function setField(int $index, $value = ''): bool
+    public function setField(int $index, $value): bool
     {
         if ($index === 0) { // Do not allow changing 0th index, which is the name of the segment
             return false;

@@ -5,6 +5,7 @@ require 'vendor/autoload.php';
 * This file is used for print example of HPRIM message
 */
 
+use Akarah\HPRIM\Segments\OBR;
 use Akarah\HPRIM\Message;
 use Akarah\HPRIM\Segments\H;
 use Akarah\HPRIM\Segments\L;
@@ -15,14 +16,37 @@ $headerSequencyH = new H();
 $patientIDP = new P();
 $endSequencyL = new L();
 
-
-// TODO: Segment P PatientIdentity
+echo 'ADM : Patient admission <br/><br/> ';
+/************************* */
+// ADM Sequency
 
 $msg->addSegment($headerSequencyH);
 $msg->addSegment($patientIDP);
 $msg->addSegment($endSequencyL);
 
 echo nl2br($msg->toString(true) );
+
+echo '<br/><br/>ORU : Appointment <br/><br/> ';
+
+/************************* */
+// ORA Sequency : Appointment
+
+$msg2 = new Message();
+
+$headerSequencyH = new H();
+$patientIDP = new P();
+//AP
+//AC (F)
+$appointmentOBR = new OBR(); 
+//OBX (F)
+$endSequencyL = new L();
+
+$msg2->addSegment($headerSequencyH);
+$msg2->addSegment($patientIDP);
+$msg2->addSegment($appointmentOBR);
+$msg2->addSegment($endSequencyL);
+
+echo nl2br($msg2->toString(true) );
 
 
 /**************EXAMPLE SEQUENCE******************** */

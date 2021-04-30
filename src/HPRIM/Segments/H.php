@@ -3,6 +3,7 @@
 namespace Akarah\HPRIM\Segments;
 
 use Akarah\HPRIM\Segment;
+use DateTime;
 
 /**
  * H (message header) HPRIM segment class
@@ -41,7 +42,7 @@ class H extends Segment
         //2 : F ( Nom de fichier)
         //3 : F ( password)
         //4 : Id émétteur
-        //5 : F
+        //5 : Message envoyé ( F)
         //6 : 'Table HPRIM 1
         //7 : Phone
         //8 : F 
@@ -52,7 +53,14 @@ class H extends Segment
         //13 : Message Time 
 
         parent::__construct('H', $fields);
-        $this->setField(1, '^~\\&');
+        $this->setField(2, '^~\\&');
+        $this->setField(4, '556859874');
+        $this->setField(5, 'ADM');
+        $this->setField(6, 'TABLE HPRIM 1');
+        $this->setField(9, '98745968422');
+        $this->setField(12, '1.2');
+        $date = new DateTime();
+        $this->setField(13, $date->format('Y-m-d H:i:s'));
 
         if (isset($fields)) {
             return;

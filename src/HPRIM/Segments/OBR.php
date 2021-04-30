@@ -5,13 +5,13 @@ namespace Akarah\HPRIM\Segments;
 use Akarah\HPRIM\Segment;
 
 /**
- * L (Patient ID) HPRIM segment class
+ * OBR (Patient ID) HPRIM segment class
 
  */
-class L extends Segment
+class OBR extends Segment
 {
     /**
-     * Create an instance of the L segment.
+     * Create an instance of the OBR segment.
      *
      * If an array argument is provided, all fields will be filled from that array. Note that for composed fields and
      * sub-components, the array may hold sub-arrays and sub-sub-arrays. If the reference is not given, the MSH segment
@@ -26,14 +26,29 @@ class L extends Segment
     {
 
         // http://interopsante.org/offres/doc_inline_src/412/HPsante24-modif%5B0%5D.pdf
-        //0 : Header : H
-        //1 : Definition des séparateurs
-        //2 : 
+        //0 : Header : OBR
+        //1 : Rang ( 1 )
+        //2 : 1234
+        //3 : F
+        //4 : F
+        //5 : Analyse ou acte
+        //6 : Priorité (F )
+        //7 : Datetime du rendez-vous
+        //8 : F datetime prelevement
+        //9 : F datetime fin prelevement
+        //10 : F 
+        //11 : F
+        //12 : Code Action
+        //13 : Risque F
+        //17 : ( F ) Prescripteur
 
-        parent::__construct('L', $fields); // HEADER of sequency
-        $this->setField(1, '1');       // Set Separator
-        //$this->setField(2, 'L');       // Set Separator
-        //$this->setField(2, '1');       // Set Separator
+        parent::__construct('OBR', $fields); // HEADER of sequency
+        $this->setField(1, '1');       // Rang
+        $this->setField(2, '1234'); // id echantillon
+        $this->setField(5, 'Urgency'); 
+        $this->setField(7, 'DateTimeRDV');
+        $this->setField(7, 'CODE action');
+        $this->setField(17, 'prescripteur');
 
         if (isset($fields)) {
             return;

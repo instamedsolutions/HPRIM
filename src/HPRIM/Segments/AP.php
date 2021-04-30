@@ -5,13 +5,13 @@ namespace Akarah\HPRIM\Segments;
 use Akarah\HPRIM\Segment;
 
 /**
- * L (Patient ID) HPRIM segment class
+ * AP () HPRIM segment class
 
  */
-class L extends Segment
+class AP extends Segment
 {
     /**
-     * Create an instance of the L segment.
+     * Create an instance of the AP segment.
      *
      * If an array argument is provided, all fields will be filled from that array. Note that for composed fields and
      * sub-components, the array may hold sub-arrays and sub-sub-arrays. If the reference is not given, the MSH segment
@@ -30,7 +30,7 @@ class L extends Segment
         //1 : Definition des séparateurs
         //2 : 
 
-        parent::__construct('L', $fields); // HEADER of sequency
+        parent::__construct('AP', $fields); // HEADER of sequency
         $this->setField(1, '1');       // Set Separator
         //$this->setField(2, 'L');       // Set Separator
         //$this->setField(2, '1');       // Set Separator
