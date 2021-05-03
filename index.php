@@ -36,6 +36,7 @@ $msg2 = new Message();
 
 $headerSequencyH = new H();
 $patientIDP = new P();
+$patientIDP->setPhoneInP('0235282525');
 //AP (F)
 //AC (F)
 $appointmentOBR = new OBR(); 

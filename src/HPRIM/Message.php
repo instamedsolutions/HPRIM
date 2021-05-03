@@ -55,8 +55,8 @@ class Message
      * (defaults to \015) or a newline, and segments should be syntactically correct. When using the string argument
      * constructor, make sure that you have escaped any characters that would have special meaning in PHP.
      *
-     * The control characters and field separator will take the values from the MSH segment, if set. Otherwise defaults
-     * will be used. Changing the MSH fields specifying the field separator and control characters after the MSH has
+     * The control characters and field separator will take the values from the H segment, if set. Otherwise defaults
+     * will be used. Changing the H fields specifying the field separator and control characters after the H has
      * been added to the message will result in setting these values for the message.
      *
      * If the message couldn't be created, for example due to a erroneous HL7 message string, an error is raised.
@@ -131,11 +131,11 @@ class Message
 
                 $segment = null;
 
-                // If a class exists for the segment under segments/, (e.g., MSH)
-                $className = "Akarah\\HL7\\Segments\\$segmentName";
+                // If a class exists for the segment under segments/, (e.g., H)
+                $className = "Akarah\\HPRIM\\Segments\\$segmentName";
                 if (class_exists($className)) {
-                    if ($segmentName === 'MSH') {
-                        array_unshift($fields, $this->fieldSeparator); # First field for MSH is '|'
+                    if ($segmentName === 'H') {
+                        array_unshift($fields, $this->fieldSeparator); # First field for H is '|'
                         $segment = new $className($fields);
                     }
                     else {
@@ -292,8 +292,8 @@ class Message
     /**
      * Set the segment on index.
      *
-     * If index is out of range, or not provided, do nothing. Setting MSH on index 0 will re-validate field separator,
-     * control characters and hl7 version, based on MSH(1), MSH(2) and MSH(12).
+     * If index is out of range, or not provided, do nothing. Setting H on index 0 will re-validate field separator,
+     * control characters and hl7 version, based on H(1), H(2) and H(12).
      *
      * @param Segment $segment
      * @param int $index Index where segment is set
@@ -306,7 +306,7 @@ class Message
             throw new InvalidArgumentException('Index out of range');
         }
 
-        if ($index === 0 && $segment->getName() === 'MSH') {
+        if ($index === 0 && $segment->getName() === 'H') {
             $this->resetCtrl($segment);
         }
 
@@ -316,7 +316,7 @@ class Message
     }
 
     /**
-     * After change of MSH, reset control fields
+     * After change of H, reset control fields
      *
      * @param Segment $segment
      * @return bool
@@ -353,6 +353,14 @@ class Message
     }
 
     /**
+    * Search if segment exist
+    */
+    public function hasSegment(string $segment): bool
+    {
+        return count($this->getSegmentsByName(strtoupper($segment))) > 0;
+    }
+
+    /**
      * Return a string representation of this message.
      *
      * This can be used to send the message over a socket to an HL7 server. To print to other output, use the $pretty
@@ -369,7 +377,7 @@ class Message
             throw new HL7Exception('Message contains no data. Can not convert to string');
         }
 
-        // Make sure MSH(1) and MSH(2) are ok, even if someone has changed these values
+        // Make sure H(1) and H(2) are ok, even if someone has changed these values
         $this->resetCtrl($this->segments[0]);
 
         $message = '';
@@ -396,7 +404,7 @@ class Message
     {
         $segmentName = $seg->getName();
         $segmentString = $segmentName . $this->fieldSeparator;
-        $fields = $seg->getFields(($segmentName === 'MSH' ? 2 : 1));
+        $fields = $seg->getFields(($segmentName === 'H' ? 2 : 1));
 
         foreach ($fields as $field) {
             if (is_array($field)) {
