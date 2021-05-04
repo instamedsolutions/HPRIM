@@ -5,6 +5,7 @@ require 'vendor/autoload.php';
 * This file is used for print example of HPRIM message
 */
 
+use Akarah\HL7\Message as HL7Message;
 use Akarah\HPRIM\Segments\OBR;
 use Akarah\HPRIM\Message;
 use Akarah\HPRIM\Segments\C;
@@ -55,20 +56,61 @@ echo nl2br($msg2->toString(true) );
 
 /**************EXAMPLE SEQUENCE******************** */
 
-
-echo '<br/><br/><br/>';
 echo '<br/><br/><br/>';
 echo 'Trame Exemple';
 echo '<br/><br/><br/>';
 
-$exemple = 'H|~^\&|0.HPR||001~ORIGIN||ORU|||002~DESTINATION||P|H2.2~C|201301011200<br/>
-P|1|01|02|02|JEAN~PIERRE||19500101|M||1 RUE DE LA PAIX~~PARIS~~75001|||||||||||||||~~UNIT<br/>
-OBR|1||~001|AU~AU~L|R||201301011200||||N|||201301011200||UNIT~UNITE A~L<br/>
-A|~UNIT~UNITE A~L|01 23 45 67 89|||||201301011200||ORIGIN|I<br/>
-OBX|1|NM|AU~Acide urique~L|||µmol/L|||||I|||201301011200|BIOCH~80~AU~140~0~P<br/>
-L|1<br/>';
+$exemple = 'H|~^\&|0.HPR||001~ORIGIN||ORU|||002~DESTINATION||P|H2.2~C|201301011200|<br/>
+P|1|01|02|02|JEAN~PIERRE||19500101|M||1 RUE DE LA PAIX~~PARIS~~75001|||||||||||||||~~UNIT|<br/>
+OBR|1||~001|AU~AU~L|R||201301011200||||N|||201301011200||UNIT~UNITE A~L|<br/>
+A|~UNIT~UNITE A~L|01 23 45 67 89|||||201301011200||ORIGIN|I|<br/>
+OBX|1|NM|AU~Acide urique~L|||µmol/L|||||I|||201301011200|BIOCH~80~AU~140~0~P|<br/>
+L|1|<br/>';
 
 echo '<br/><br/><br/>';
 echo $exemple;
+
+echo '<br/>Parsing<br/>';
+
+/************************************************* */
+
+
+// HOW TO PARSE A MESSAGE ? 
+$msg = new Message($msg2->toString(true));
+
+if ($msg->hasSegment('H')){
+    var_dump($msg->getSegmentsByName('H')[0]->getTypeSequencyInH());
+    var_dump($msg->getSegmentsByName('H')[0]->getIdTransmitterInH());
+    var_dump($msg->getSegmentsByName('H')[0]->getIdReceiverInH());
+}
+
+if ($msg->hasSegment('P')){
+    var_dump($msg->getSegmentsByName('P')[0]->getNameInP());
+    var_dump($msg->getSegmentsByName('P')[0]->getBirthDateInP());
+    var_dump($msg->getSegmentsByName('P')[0]->getSexeInP());
+    var_dump($msg->getSegmentsByName('P')[0]->getAdresseInP());
+    var_dump($msg->getSegmentsByName('P')[0]->getPhoneInP());
+    var_dump($msg->getSegmentsByName('P')[0]->getSizeInP());
+    var_dump($msg->getSegmentsByName('P')[0]->getWeightInP());
+    var_dump($msg->getSegmentsByName('P')[0]->getImageInP());
+}
+
+if ($msg->hasSegment('OBR')){
+    var_dump($msg->getSegmentsByName('OBR')[0]->getIdSequencyInOBR());
+    var_dump($msg->getSegmentsByName('OBR')[0]->getTypeAppointmentInOBR());
+    var_dump($msg->getSegmentsByName('OBR')[0]->getAppointmentTimeInOBR());
+    var_dump($msg->getSegmentsByName('OBR')[0]->getActionCodeInOBR());
+    var_dump($msg->getSegmentsByName('OBR')[0]->getPrescriptorInOBR());
+}
+
+if ($msg->hasSegment('C')){
+    var_dump($msg->getSegmentsByName('C')[0]->getMediaNameInC());
+    var_dump($msg->getSegmentsByName('C')[0]->getMediaContentInC());
+}
+
+if ($msg->hasSegment('L')){
+    var_dump($msg->getSegmentsByName('L')[0]);
+}
+
 
 ?>

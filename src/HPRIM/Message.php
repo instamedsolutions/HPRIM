@@ -75,14 +75,14 @@ class Message
         $this->segments = [];
 
         // Control characters and other HL7 properties
-        $this->segmentSeparator = $hl7Globals['SEGMENT_SEPARATOR'] ?? '\n';
-        $this->segmentEndingBar = $hl7Globals['SEGMENT_ENDING_BAR'] ?? true; // Bar (|) at end of each segment. Default: Present
-        $this->fieldSeparator = $hl7Globals['FIELD_SEPARATOR'] ?? '|';
-        $this->componentSeparator = $hl7Globals['COMPONENT_SEPARATOR'] ?? '^';
-        $this->subcomponentSeparator = $hl7Globals['SUBCOMPONENT_SEPARATOR'] ?? '&';
-        $this->repetitionSeparator = $hl7Globals['REPETITION_SEPARATOR'] ?? '~';
-        $this->escapeChar = $hl7Globals['ESCAPE_CHAR'] ?? '\\';
-        $this->hl7Version = $hl7Globals['HL7_VERSION'] ?? '2.3';
+        $this->segmentSeparator = '<br/>';
+        $this->segmentEndingBar = true; // Bar (|) at end of each segment. Default: Present
+        $this->fieldSeparator = '|';
+        $this->componentSeparator = '^';
+        $this->subcomponentSeparator = '&';
+        $this->repetitionSeparator = '~';
+        $this->escapeChar = '\\';
+        $this->hl7Version = '2.3';
 
         $this->doNotSplitRepetition = $doNotSplitRepetition;
 
@@ -90,30 +90,14 @@ class Message
             $this->resetSegmentIndices();
         }
 
-        // If an HL7 string is given to the constructor, parse it.
+        // If an HPRIM string is given to the constructor, parse it.
         if ($msgStr) {
-            $segments = preg_split("/[\n\r" . $this->segmentSeparator . ']/', $msgStr, -1, PREG_SPLIT_NO_EMPTY);
+            $segments = preg_split($this->segmentSeparator, $msgStr);
 
             // The first segment should be the control segment
             if (!preg_match('/^([A-Z0-9]{3})(.)(.)(.)(.)(.)(.)/', $segments[0], $matches)) {
-                throw new HL7Exception('Not a valid message: invalid control segment', E_USER_ERROR);
+                //throw new HL7Exception('Not a valid message: invalid control segment', E_USER_ERROR);
             }
-
-            [$dummy, $hdr, $fieldSep, $compSep, $repSep, $esc, $subCompSep, $fieldSepCtrl] = $matches;
-
-            // Check whether field separator is repeated after 4 control characters
-            if ($fieldSep !== $fieldSepCtrl) {
-                throw new HL7Exception('Not a valid message: field separator invalid', E_USER_ERROR);
-            }
-
-            // Set field separator based on control segment
-            $this->fieldSeparator        = $fieldSep;
-
-            // Set other separators
-            $this->componentSeparator    = $compSep;
-            $this->subcomponentSeparator = $subCompSep;
-            $this->escapeChar            = $esc;
-            $this->repetitionSeparator   = $repSep;
 
             // Do all segments
             foreach ($segments as $i => $iValue) {
@@ -130,25 +114,33 @@ class Message
                 }
 
                 $segment = null;
+                
 
-                // If a class exists for the segment under segments/, (e.g., H)
+                // If a class exists for the segment : Create Segment
                 $className = "Akarah\\HPRIM\\Segments\\$segmentName";
+
+                $className = str_replace('>', '', $className);
+
                 if (class_exists($className)) {
+                    //echo $className . '<br/>';
                     if ($segmentName === 'H') {
-                        array_unshift($fields, $this->fieldSeparator); # First field for H is '|'
+                        array_unshift($fields, $this->fieldSeparator);
                         $segment = new $className($fields);
                     }
                     else {
-                        $segment = new $className($fields, $autoIncrementIndices);
+                        array_unshift($fields, $this->fieldSeparator); 
+                        $segment = new $className($fields);
                     }
                 }
                 else {
                     $segment = new Segment($segmentName, $fields);
+                    //echo $className;
                 }
 
                 if (!$segment) {
                     trigger_error('Segment not created', E_USER_WARNING);
                 }
+
 
                 $this->addSegment($segment);
             }

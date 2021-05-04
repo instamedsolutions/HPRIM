@@ -3,7 +3,7 @@
 namespace Akarah\HPRIM;
 
 use Akarah\Exceptions\HL7Exception;
-use Akarah\HL7\Segments\MSH;
+use Akarah\HPRIM\Segments\H;
 
 trait MessageHelpersTrait
 {
@@ -90,7 +90,7 @@ trait MessageHelpersTrait
     public function isOrm(): bool
     {
         /** @var MSH $msh */
-        $msh = $this->getFirstSegmentInstance('MSH');
+        $msh = $this->getFirstSegmentInstance('H');
         return false !== strpos($msh->getMessageType(), 'ORM');
     }
 
@@ -102,7 +102,7 @@ trait MessageHelpersTrait
     public function isOru(): bool
     {
         /** @var MSH $msh */
-        $msh = $this->getFirstSegmentInstance('MSH');
+        $msh = $this->getFirstSegmentInstance('H');
         return false !== strpos($msh->getMessageType(), 'ORU');
     }
 
@@ -114,7 +114,7 @@ trait MessageHelpersTrait
     public function isAdt(): bool
     {
         /** @var MSH $msh */
-        $msh = $this->getFirstSegmentInstance('MSH');
+        $msh = $this->getFirstSegmentInstance('H');
         return false !== strpos($msh->getMessageType(), 'ADT');
     }
 
@@ -126,7 +126,7 @@ trait MessageHelpersTrait
     public function isSiu(): bool
     {
         /** @var MSH $msh */
-        $msh = $this->getFirstSegmentInstance('MSH');
+        $msh = $this->getFirstSegmentInstance('H');
         return false !== strpos($msh->getMessageType(), 'SIU');
     }
 
