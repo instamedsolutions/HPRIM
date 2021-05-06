@@ -18,6 +18,7 @@ $headerSequencyH = new H();
 $patientIDP = new P();
 $endSequencyL = new L();
 
+
 echo 'ADM : Patient admission <br/><br/> ';
 /************************* */
 // ADM Sequency
@@ -30,19 +31,18 @@ echo nl2br($msg->toString(true) );
 
 echo '<br/><br/>ORU : Appointment <br/><br/> ';
 
+
 /************************* */
 // ORA Sequency : Appointment
+
 
 $msg2 = new Message();
 
 $headerSequencyH = new H();
 $patientIDP = new P();
 $patientIDP->setPhoneInP('0235282525');
-//AP (F)
-//AC (F)
 $appointmentOBR = new OBR(); 
 $CommenttoAppointment = new C();
-//OBX (F)
 $endSequencyL = new L();
 
 $msg2->addSegment($headerSequencyH);
@@ -58,59 +58,78 @@ echo nl2br($msg2->toString(true) );
 
 echo '<br/><br/><br/>';
 echo 'Trame Exemple';
-echo '<br/><br/><br/>';
+echo '<br/>';
 
-$exemple = 'H|~^\&|0.HPR||001~ORIGIN||ORU|||002~DESTINATION||P|H2.2~C|201301011200|<br/>
-P|1|01|02|02|JEAN~PIERRE||19500101|M||1 RUE DE LA PAIX~~PARIS~~75001|||||||||||||||~~UNIT|<br/>
-OBR|1||~001|AU~AU~L|R||201301011200||||N|||201301011200||UNIT~UNITE A~L|<br/>
-A|~UNIT~UNITE A~L|01 23 45 67 89|||||201301011200||ORIGIN|I|<br/>
-OBX|1|NM|AU~Acide urique~L|||µmol/L|||||I|||201301011200|BIOCH~80~AU~140~0~P|<br/>
-L|1|<br/>';
+$exemple = 'H||^~\&||111111|ORX|TABLE HPRIM 1|||222222|||1.2|2021-05-05 13:25:08|<br/>
+        P|1||||Waelchi^Landen|2016-01-21|F||addr||02||||41|37|img|<br/>
+        OBR|1|1234|||Emergency||1937-02-06 05:42:32|||||ACTIO|||||CH belvedere|<br/>
+        C|1||img|1|<br/>
+        L|1|<br/>';
 
-echo '<br/><br/><br/>';
+
+echo '<br/>Parsing example <br/>';
+
+
 echo $exemple;
 
-echo '<br/>Parsing<br/>';
 
 /************************************************* */
 
-
 // HOW TO PARSE A MESSAGE ? 
-$msg = new Message($msg2->toString(true));
+//$msg = new Message($msg2->toString(true)); // Real message 
+
+$msg = new Message($exemple); // String, used in dataservice
+
+echo '<br/><br/>';
+echo 'Nombre de segment : ' . count($msg->getSegments());
+echo '<br/><br/>';
+echo $msg->segmentToString($msg->getSegments()[0]);
+echo '<br/>';
+echo $msg->segmentToString($msg->getSegments()[1]);
+echo '<br/>';
+echo $msg->segmentToString($msg->getSegments()[2]);
+echo '<br/>';
+echo $msg->segmentToString($msg->getSegments()[3]);
+echo '<br/>';
+echo $msg->segmentToString($msg->getSegments()[4]);
+
+echo '<br/><br/>';
 
 if ($msg->hasSegment('H')){
-    var_dump($msg->getSegmentsByName('H')[0]->getTypeSequencyInH());
-    var_dump($msg->getSegmentsByName('H')[0]->getIdTransmitterInH());
-    var_dump($msg->getSegmentsByName('H')[0]->getIdReceiverInH());
+    echo($msg->getSegmentsByName('H')[0]->getIdTransmitterInH());
+    echo($msg->getSegmentsByName('H')[0]->getIdReceiverInH());
 }
 
 if ($msg->hasSegment('P')){
-    var_dump($msg->getSegmentsByName('P')[0]->getNameInP());
-    var_dump($msg->getSegmentsByName('P')[0]->getBirthDateInP());
-    var_dump($msg->getSegmentsByName('P')[0]->getSexeInP());
-    var_dump($msg->getSegmentsByName('P')[0]->getAdresseInP());
-    var_dump($msg->getSegmentsByName('P')[0]->getPhoneInP());
-    var_dump($msg->getSegmentsByName('P')[0]->getSizeInP());
-    var_dump($msg->getSegmentsByName('P')[0]->getWeightInP());
-    var_dump($msg->getSegmentsByName('P')[0]->getImageInP());
+    echo($msg->getSegmentsByName('P')[0]->getNameInP());
+    echo($msg->getSegmentsByName('P')[0]->getBirthDateInP());
+    echo($msg->getSegmentsByName('P')[0]->getSexeInP());
+    echo($msg->getSegmentsByName('P')[0]->getAdresseInP());
+    echo($msg->getSegmentsByName('P')[0]->getPhoneInP());
+    echo($msg->getSegmentsByName('P')[0]->getSizeInP());
+    echo($msg->getSegmentsByName('P')[0]->getWeightInP());
+    echo($msg->getSegmentsByName('P')[0]->getImageInP());
 }
 
 if ($msg->hasSegment('OBR')){
-    var_dump($msg->getSegmentsByName('OBR')[0]->getIdSequencyInOBR());
-    var_dump($msg->getSegmentsByName('OBR')[0]->getTypeAppointmentInOBR());
-    var_dump($msg->getSegmentsByName('OBR')[0]->getAppointmentTimeInOBR());
-    var_dump($msg->getSegmentsByName('OBR')[0]->getActionCodeInOBR());
-    var_dump($msg->getSegmentsByName('OBR')[0]->getPrescriptorInOBR());
+    echo($msg->getSegmentsByName('OBR')[0]->getIdSequencyInOBR());
+    echo($msg->getSegmentsByName('OBR')[0]->getTypeAppointmentInOBR());
+    echo($msg->getSegmentsByName('OBR')[0]->getAppointmentTimeInOBR());
+    echo($msg->getSegmentsByName('OBR')[0]->getActionCodeInOBR());
+    echo($msg->getSegmentsByName('OBR')[0]->getPrescriptorInOBR());
 }
 
 if ($msg->hasSegment('C')){
-    var_dump($msg->getSegmentsByName('C')[0]->getMediaNameInC());
-    var_dump($msg->getSegmentsByName('C')[0]->getMediaContentInC());
+    echo($msg->getSegmentsByName('C')[0]->getMediaNameInC());
+    echo($msg->getSegmentsByName('C')[0]->getMediaContentInC());
 }
 
+echo '<br/><br/>';
+/*
 if ($msg->hasSegment('L')){
-    var_dump($msg->getSegmentsByName('L')[0]);
+    echo($msg->getSegmentsByName('L')[0]);
 }
+*/
 
 
 ?>

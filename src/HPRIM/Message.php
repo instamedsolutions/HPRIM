@@ -102,28 +102,37 @@ class Message
             // Do all segments
             foreach ($segments as $i => $iValue) {
                 $fields = preg_split("/\\" . $this->fieldSeparator . '/', $segments[$i]);
+
+                //Normalize data if segment is incorrect
+                $segments[$i] = str_replace('<|', '', $segments[$i]);
+                $fields = str_replace('>', '', $fields);
+
                 $segmentName = array_shift($fields);
 
                 foreach ($fields as $j => $jValue) {
+                    
                     // Skip control field
                     if ($i === 0 && $j === 0) {
                         continue;
                     }
-
                     $fields[$j] = $this->extractComponentsFromFields($fields[$j], $keepEmptySubFields);
                 }
 
                 $segment = null;
                 
-
+                $segmentName = trim($segmentName);
                 // If a class exists for the segment : Create Segment
                 $className = "Akarah\\HPRIM\\Segments\\$segmentName";
 
-                $className = str_replace('>', '', $className);
 
-                if (class_exists($className)) {
-                    //echo $className . '<br/>';
+                // or If class exist...
+                if ($segmentName == 'H' || $segmentName == 'P' || $segmentName == 'L' || $segmentName == 'OBR' || $segmentName == 'C' || $segmentName == 'AP') {   // or if exist
                     if ($segmentName === 'H') {
+                        array_unshift($fields, $this->fieldSeparator);
+                        $segment = new $className($fields);
+                    }
+                    else if ($segmentName === 'P') {
+                        
                         array_unshift($fields, $this->fieldSeparator);
                         $segment = new $className($fields);
                     }
@@ -134,7 +143,6 @@ class Message
                 }
                 else {
                     $segment = new Segment($segmentName, $fields);
-                    //echo $className;
                 }
 
                 if (!$segment) {
