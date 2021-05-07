@@ -48,7 +48,7 @@ class OBR extends Segment
         $this->setField(2, '1234'); // id echantillon
         //$this->setField(5, 'Urgency'); 
         //$this->setField(7, 'DateTimeRDV');
-        //$this->setField(12, 'CODE action');
+        $this->setField(12, 'ACTIO');
         //$this->setField(17, 'prescripteur');
 
         if (isset($fields)) {

@@ -39,8 +39,8 @@ class P extends Segment
         //17 : Comment
 
         parent::__construct('P', $fields);
-        /*
         $this->setField(1, '1');
+        /*
         $this->setField(5, 'SANDRO^FERRARI');
         $this->setField(6, '20/03/1994');
         $this->setField(7, 'M');
@@ -76,12 +76,12 @@ class P extends Segment
         return $this->setField($position, $value);
     }
 
-    public function setBirthDateInP($value, int $position = 6)
+    public function setBirthDateInP($value, int $position = 7)
     {
         return $this->setField($position, $value);
     }
 
-    public function setSexeInP($value, int $position = 7)
+    public function setSexeInP($value, int $position = 8)
     {
         return $this->setField($position, $value);
     }
@@ -106,7 +106,7 @@ class P extends Segment
         return $this->setField($position, $value);
     }
 
-    public function setImageInP($value, int $position = 17)
+    public function setImageInP($value, int $position = 18)
     {
         return $this->setField($position, $value);
     }
@@ -117,12 +117,12 @@ class P extends Segment
         return $this->getField($position);
     }
 
-    public function getBirthDateInP(int $position = 6)
+    public function getBirthDateInP(int $position = 7)
     {
         return $this->getField($position);
     }
 
-    public function getSexeInP(int $position = 7)
+    public function getSexeInP(int $position = 8)
     {
         return $this->getField($position);
     }
@@ -147,7 +147,7 @@ class P extends Segment
         return $this->getField($position);
     }
 
-    public function getImageInP(int $position = 17)
+    public function getImageInP(int $position = 18)
     {
         return $this->getField($position);
     }
