@@ -71,7 +71,7 @@ class P extends Segment
     // GETTER AND SETTER OK IN P SEGMENT
 
     //SETTER FUNCTIONS 
-    public function setNameInP($value, int $position = 5)
+    public function setNameInP($value, int $position = 6)
     {
         return $this->setField($position, $value);
     }
@@ -96,12 +96,12 @@ class P extends Segment
         return $this->setField($position, $value);
     }
 
-    public function setSizeInP($value, int $position = 15)
+    public function setSizeInP($value, int $position = 16)
     {
         return $this->setField($position, $value);
     }
 
-    public function setWeightInP($value, int $position = 16)
+    public function setWeightInP($value, int $position = 17)
     {
         return $this->setField($position, $value);
     }
@@ -112,7 +112,7 @@ class P extends Segment
     }
 
     //GETTER FUNCTIONS
-    public function getNameInP(int $position = 5)
+    public function getNameInP(int $position = 6)
     {
         return $this->getField($position);
     }
@@ -137,12 +137,12 @@ class P extends Segment
         return $this->getField($position);
     }
 
-    public function getSizeInP(int $position = 15)
+    public function getSizeInP(int $position = 16)
     {
         return $this->getField($position);
     }
 
-    public function getWeightInP(int $position = 16)
+    public function getWeightInP(int $position = 17)
     {
         return $this->getField($position);
     }
