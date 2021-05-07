@@ -43,12 +43,13 @@ class OBR extends Segment
         //17 : ( F ) Prescripteur
 
         parent::__construct('OBR', $fields); // HEADER of sequency
+        
         $this->setField(1, '1');       // Rang
         $this->setField(2, '1234'); // id echantillon
-        $this->setField(5, 'Urgency'); 
-        $this->setField(7, 'DateTimeRDV');
-        $this->setField(12, 'CODE action');
-        $this->setField(17, 'prescripteur');
+        //$this->setField(5, 'Urgency'); 
+        //$this->setField(7, 'DateTimeRDV');
+        //$this->setField(12, 'CODE action');
+        //$this->setField(17, 'prescripteur');
 
         if (isset($fields)) {
             return;

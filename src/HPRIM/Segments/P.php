@@ -39,6 +39,7 @@ class P extends Segment
         //17 : Comment
 
         parent::__construct('P', $fields);
+        /*
         $this->setField(1, '1');
         $this->setField(5, 'SANDRO^FERRARI');
         $this->setField(6, '20/03/1994');
@@ -48,6 +49,7 @@ class P extends Segment
         $this->setField(15, '175cm');
         $this->setField(16, '80Kg');
         $this->setField(17, 'base64imagePatient');
+        */
 
         if (isset($fields)) {
             return;
