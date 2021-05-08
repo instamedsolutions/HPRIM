@@ -54,7 +54,7 @@ class H extends Segment
         $this->setField(2, '^~\\&');
         //$this->setField(4, '556859874'); // id transmitter
         //$this->setField(5, 'ADM'); // TypeSequency
-        $this->setField(6, 'TABLE HPRIM 1');
+        //$this->setField(6, 'TABLE HPRIM 1');
         //$this->setField(9, '98745968422'); // id receiver
         $this->setField(12, '1.2'); 
         $date = new DateTime();

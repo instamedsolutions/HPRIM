@@ -32,8 +32,8 @@ class C extends Segment
 
         parent::__construct('C', $fields); // HEADER of sequency
         $this->setField(1, '1');       // Set Separator
-        $this->setField(2, 'MediaName');       // Set Separator
-        $this->setField(3, 'MediaContent');       // Set Separator
+        //$this->setField(2, 'MediaName');       // Set Separator
+        //$this->setField(3, 'MediaContent');       // Set Separator
         //$this->setField(2, '1');       // Set Separator
 
         if (isset($fields)) {

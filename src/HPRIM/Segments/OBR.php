@@ -45,7 +45,7 @@ class OBR extends Segment
         parent::__construct('OBR', $fields); // HEADER of sequency
         
         $this->setField(1, '1');       // Rang
-        $this->setField(2, '1234'); // id echantillon
+        //$this->setField(2, '1234'); // id echantillon
         //$this->setField(5, 'Urgency'); 
         //$this->setField(7, 'DateTimeRDV');
         //$this->setField(12, 'ACTIO');
