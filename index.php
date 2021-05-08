@@ -100,28 +100,35 @@ if ($msg->hasSegment('H')){
     echo($msg->getSegmentsByName('H')[0]->getIdReceiverInH());
 }
 
+echo '<br/><br/>';
+
 if ($msg->hasSegment('P')){
-    echo($msg->getSegmentsByName('P')[0]->getNameInP());
-    echo($msg->getSegmentsByName('P')[0]->getBirthDateInP());
-    echo($msg->getSegmentsByName('P')[0]->getSexeInP());
-    echo($msg->getSegmentsByName('P')[0]->getAdresseInP());
-    echo($msg->getSegmentsByName('P')[0]->getPhoneInP());
-    echo($msg->getSegmentsByName('P')[0]->getSizeInP());
-    echo($msg->getSegmentsByName('P')[0]->getWeightInP());
-    echo($msg->getSegmentsByName('P')[0]->getImageInP());
+    echo('P birthDate : '. $msg->getSegmentsByName('P')[0]->getBirthDateInP() . '<br/>');
+    echo('P sexe : '. $msg->getSegmentsByName('P')[0]->getSexeInP() . '<br/>');
+    echo('P adresse : '. $msg->getSegmentsByName('P')[0]->getAdresseInP() . '<br/>');
+    echo('P phone : '. $msg->getSegmentsByName('P')[0]->getPhoneInP() . '<br/>');
+    echo('P size : '. $msg->getSegmentsByName('P')[0]->getSizeInP() . '<br/>');
+    echo('P weight : '. $msg->getSegmentsByName('P')[0]->getWeightInP() . '<br/>');
+    echo('P image  : '. $msg->getSegmentsByName('P')[0]->getImageInP() . '<br/>');
+    echo('P firstname : '.  $msg->getSegmentsByName('P')[0]->getNameInP()[0] . '<br/>');
+    echo('P lastname : '. $msg->getSegmentsByName('P')[0]->getNameInP()[1] . '<br/>');
 }
+
+echo '<br/><br/>';
 
 if ($msg->hasSegment('OBR')){
-    echo($msg->getSegmentsByName('OBR')[0]->getIdSequencyInOBR());
-    echo($msg->getSegmentsByName('OBR')[0]->getTypeAppointmentInOBR());
-    echo($msg->getSegmentsByName('OBR')[0]->getAppointmentTimeInOBR());
-    echo($msg->getSegmentsByName('OBR')[0]->getActionCodeInOBR());
-    echo($msg->getSegmentsByName('OBR')[0]->getPrescriptorInOBR());
+    echo('OBR idSequency : ' . $msg->getSegmentsByName('OBR')[0]->getIdSequencyInOBR() . '<br/>');
+    echo('OBR typeAppointment : ' . $msg->getSegmentsByName('OBR')[0]->getTypeAppointmentInOBR() . '<br/>');
+    echo('OBR appointment Time : ' . $msg->getSegmentsByName('OBR')[0]->getAppointmentTimeInOBR() . '<br/>');
+    echo('OBR ActionCode : ' . $msg->getSegmentsByName('OBR')[0]->getActionCodeInOBR() . '<br/>');
+    echo('OBR prescripteur : ' . $msg->getSegmentsByName('OBR')[0]->getPrescriptorInOBR() . '<br/>');
 }
 
+echo '<br/><br/>';
+
 if ($msg->hasSegment('C')){
-    echo($msg->getSegmentsByName('C')[0]->getMediaNameInC());
-    echo($msg->getSegmentsByName('C')[0]->getMediaContentInC());
+    echo('C MediaName : ' . $msg->getSegmentsByName('C')[0]->getMediaNameInC() . '<br/>');
+    echo('C MediaContent : ' . $msg->getSegmentsByName('C')[0]->getMediaContentInC() . '<br/>');
 }
 
 echo '<br/><br/>';

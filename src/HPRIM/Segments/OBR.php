@@ -48,7 +48,7 @@ class OBR extends Segment
         $this->setField(2, '1234'); // id echantillon
         //$this->setField(5, 'Urgency'); 
         //$this->setField(7, 'DateTimeRDV');
-        $this->setField(12, 'ACTIO');
+        //$this->setField(12, 'ACTIO');
         //$this->setField(17, 'prescripteur');
 
         if (isset($fields)) {
@@ -91,22 +91,22 @@ class OBR extends Segment
         return $this->setField($position, $value);
     }
 
-    public function setTypeAppointmentInOBR($value, int $position = 5)
+    public function setTypeAppointmentInOBR($value, int $position = 6)
     {
         return $this->setField($position, $value);
     }
 
-    public function setAppointmentTimeInOBR($value, int $position = 7)
+    public function setAppointmentTimeInOBR($value, int $position = 8)
     {
         return $this->setField($position, $value);
     }
 
-    public function setActionCodeInOBR($value, int $position = 12)
+    public function setActionCodeInOBR($value, int $position = 13)
     {
         return $this->setField($position, $value);
     }
 
-    public function setPrescriptorInOBR($value, int $position = 17)
+    public function setPrescriptorInOBR($value, int $position = 18)
     {
         return $this->setField($position, $value);
     }
@@ -117,22 +117,22 @@ class OBR extends Segment
         return $this->getField($position);
     }
 
-    public function getTypeAppointmentInOBR(int $position = 5)
+    public function getTypeAppointmentInOBR(int $position = 6)
     {
         return $this->getField($position);
     }
 
-    public function getAppointmentTimeInOBR(int $position = 7)
+    public function getAppointmentTimeInOBR(int $position =8)
     {
         return $this->getField($position);
     }
 
-    public function getActionCodeInOBR(int $position = 12)
+    public function getActionCodeInOBR(int $position = 13)
     {
         return $this->getField($position);
     }
 
-    public function getPrescriptorInOBR(int $position = 17)
+    public function getPrescriptorInOBR(int $position = 18)
     {
         return $this->getField($position);
     }

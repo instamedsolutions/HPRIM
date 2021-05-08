@@ -68,23 +68,23 @@ class C extends Segment
     }
 
     //SETTER
-    public function setMediaNameInC($value, int $position = 2)
+    public function setMediaNameInC($value, int $position = 3)
     {
         return $this->setField($position, $value);
     }
 
-    public function setMediaContentInC($value, int $position = 3)
+    public function setMediaContentInC($value, int $position = 4)
     {
         return $this->setField($position, $value);
     }
 
     //GETTER FUNCTIONS
-    public function getMediaNameInC(int $position = 2)
+    public function getMediaNameInC(int $position = 3)
     {
         return $this->getField($position);
     }
 
-    public function getMediaContentInC(int $position = 3)
+    public function getMediaContentInC(int $position = 4)
     {
         return $this->getField($position);
     }

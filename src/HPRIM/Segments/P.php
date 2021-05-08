@@ -86,7 +86,7 @@ class P extends Segment
         return $this->setField($position, $value);
     }
 
-    public function setAdresseInP($value, int $position = 9)
+    public function setAdresseInP($value, int $position = 10)
     {
         return $this->setField($position, $value);
     }
@@ -127,7 +127,7 @@ class P extends Segment
         return $this->getField($position);
     }
 
-    public function getAdresseInP(int $position = 9)
+    public function getAdresseInP(int $position = 10)
     {
         return $this->getField($position);
     }
