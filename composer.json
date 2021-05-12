@@ -1,6 +1,6 @@
 {
     "name": "akarah/hprim",
-    "description": "HPRIM parser, generator and sender.",
+    "description": "HPRIM parser and generator .",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -29,7 +29,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Akarah\\HL7\\Tests\\": "tests/"
+            "Akarah\\HPRIM\\Tests\\": "tests/"
         }
     },
     "extra": {
