@@ -1,8 +1,8 @@
 <?php
 
-namespace Aranyasen\HL7\Segments;
+namespace Akarah\HL7\Segments;
 
-use Aranyasen\HL7\Segment;
+use Akarah\HL7\Segment;
 
 /**
  * PV2 segment class
