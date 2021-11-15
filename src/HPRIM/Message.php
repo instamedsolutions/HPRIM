@@ -75,14 +75,14 @@ class Message
         $this->segments = [];
 
         // Control characters and other HL7 properties
-        $this->segmentSeparator = '<br/>';
-        $this->segmentEndingBar = true; // Bar (|) at end of each segment. Default: Present
-        $this->fieldSeparator = '|';
-        $this->componentSeparator = '^';
-        $this->subcomponentSeparator = '&';
-        $this->repetitionSeparator = '~';
-        $this->escapeChar = '\\';
-        $this->hl7Version = '2.3';
+        $this->segmentSeparator = $hl7Globals['SEGMENT_SEPARATOR'] ?? '\n';
+        $this->segmentEndingBar = $hl7Globals['SEGMENT_ENDING_BAR'] ?? true; // '|' at end of each segment
+        $this->fieldSeparator = $hl7Globals['FIELD_SEPARATOR'] ?? '|';
+        $this->componentSeparator = $hl7Globals['COMPONENT_SEPARATOR'] ?? '^';
+        $this->subcomponentSeparator = $hl7Globals['SUBCOMPONENT_SEPARATOR'] ?? '&';
+        $this->repetitionSeparator = $hl7Globals['REPETITION_SEPARATOR'] ?? '~';
+        $this->escapeChar = $hl7Globals['ESCAPE_CHAR'] ?? '\\';
+        $this->hl7Version = $hl7Globals['HL7_VERSION'] ?? '2.3';
 
         $this->doNotSplitRepetition = $doNotSplitRepetition;
 
@@ -110,7 +110,7 @@ class Message
                 $segmentName = array_shift($fields);
 
                 foreach ($fields as $j => $jValue) {
-                    
+
                     // Skip control field
                     if ($i === 0 && $j === 0) {
                         continue;
@@ -119,7 +119,7 @@ class Message
                 }
 
                 $segment = null;
-                
+
                 $segmentName = trim($segmentName);
                 // If a class exists for the segment : Create Segment
                 $className = "Akarah\\HPRIM\\Segments\\$segmentName";
@@ -132,12 +132,12 @@ class Message
                         $segment = new $className($fields);
                     }
                     else if ($segmentName === 'P') {
-                        
+
                         array_unshift($fields, $this->fieldSeparator);
                         $segment = new $className($fields);
                     }
                     else {
-                        array_unshift($fields, $this->fieldSeparator); 
+                        array_unshift($fields, $this->fieldSeparator);
                         $segment = new $className($fields);
                     }
                 }
