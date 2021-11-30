@@ -34,7 +34,8 @@ class H extends Segment
     public function __construct(array $fields = null, array $hprimGlobals = null)
     {
 
-        // HOW TO BUILD A H SEGMENT ? 
+
+        // HOW TO BUILD A H SEGMENT ?
         //0 : Header : H
         //1 : Definition des séparateurs '^~\\&'
         //2 : F ( Nom de fichier)
@@ -43,12 +44,12 @@ class H extends Segment
         //5 : Message envoyé ( F)
         //6 : 'Table HPRIM 1
         //7 : Phone
-        //8 : F 
+        //8 : F
         //9 : Id récépteur
         //10 : F ( comments )
         //11 : F
         //12 : Version HPRIM
-        //13 : Message Time 
+        //13 : Message Time
 
         parent::__construct('H', $fields);
         $this->setField(2, '^~\\&');
@@ -56,7 +57,7 @@ class H extends Segment
         //$this->setField(5, 'ADM'); // TypeSequency
         //$this->setField(6, 'TABLE HPRIM 1');
         //$this->setField(9, '98745968422'); // id receiver
-        $this->setField(12, '1.2'); 
+        $this->setField(12, '1.2');
         $date = new DateTime();
         $this->setField(13, $date->format('Y-m-d H:i:s'));
 
@@ -76,9 +77,9 @@ class H extends Segment
         return parent::setField($index, $value);
     }
 
-    //GETTER AND SETTER : 
-    
-    //SETTER FUNCTIONS 
+    //GETTER AND SETTER :
+
+    //SETTER FUNCTIONS
     public function setIdTransmitterInH($value, int $position = 4)
     {
         return $this->setField($position, $value);
@@ -93,6 +94,16 @@ class H extends Segment
     {
         return $this->setField($position, $value);
     }
+
+    /**
+     * @param int $position
+     * @return array|string|null
+     */
+    public function getIdMessage(int $position = 3)
+    {
+        return $this->getField($position);
+    }
+
 
     //GETTER FUNCTIONS
     public function getIdTransmitterInH(int $position = 4)

@@ -60,6 +60,7 @@ class Message
      * been added to the message will result in setting these values for the message.
      *
      * If the message couldn't be created, for example due to a erroneous HL7 message string, an error is raised.
+     *
      * @param string|null $msgStr
      * @param array|null $hl7Globals Set control characters or HL7 properties. e.g., ['HL7_VERSION' => '2.5']
      * @param bool $keepEmptySubFields Set this to true to retain empty sub fields
@@ -69,13 +70,19 @@ class Message
      * @throws HL7Exception
      * @throws \ReflectionException
      */
-    public function __construct(string $msgStr = null, array $hl7Globals = null, bool $keepEmptySubFields = false, bool $resetIndices = false, bool $autoIncrementIndices = true, bool $doNotSplitRepetition = null)
-    {
+    public function __construct(
+        string $msgStr = null,
+        array $hl7Globals = null,
+        bool $keepEmptySubFields = false,
+        bool $resetIndices = false,
+        bool $autoIncrementIndices = true,
+        bool $doNotSplitRepetition = null
+    ) {
         // Array holding the segments
         $this->segments = [];
 
         // Control characters and other HL7 properties
-        $this->segmentSeparator = $hl7Globals['SEGMENT_SEPARATOR'] ?? '\n';
+        $this->segmentSeparator = $hl7Globals['SEGMENT_SEPARATOR'] ?? '\r';
         $this->segmentEndingBar = $hl7Globals['SEGMENT_ENDING_BAR'] ?? true; // '|' at end of each segment
         $this->fieldSeparator = $hl7Globals['FIELD_SEPARATOR'] ?? '|';
         $this->componentSeparator = $hl7Globals['COMPONENT_SEPARATOR'] ?? '^';
@@ -92,7 +99,7 @@ class Message
 
         // If an HPRIM string is given to the constructor, parse it.
         if ($msgStr) {
-            $segments = preg_split($this->segmentSeparator, $msgStr);
+            $segments = preg_split("#" . $this->segmentSeparator . "#", $msgStr);
 
             // The first segment should be the control segment
             if (!preg_match('/^([A-Z0-9]{3})(.)(.)(.)(.)(.)(.)/', $segments[0], $matches)) {
@@ -126,22 +133,10 @@ class Message
 
 
                 // or If class exist...
-                if ($segmentName == 'H' || $segmentName == 'P' || $segmentName == 'L' || $segmentName == 'OBR' || $segmentName == 'C' || $segmentName == 'AP') {   // or if exist
-                    if ($segmentName === 'H') {
-                        array_unshift($fields, $this->fieldSeparator);
-                        $segment = new $className($fields);
-                    }
-                    else if ($segmentName === 'P') {
-
-                        array_unshift($fields, $this->fieldSeparator);
-                        $segment = new $className($fields);
-                    }
-                    else {
-                        array_unshift($fields, $this->fieldSeparator);
-                        $segment = new $className($fields);
-                    }
-                }
-                else {
+                if (class_exists($className)) {   // or if exist
+                    array_unshift($fields, $this->fieldSeparator);
+                    $segment = new $className($fields);
+                } else {
                     $segment = new Segment($segmentName, $fields);
                 }
 
@@ -184,17 +179,15 @@ class Message
     {
         if ($index > count($this->segments)) {
             throw new InvalidArgumentException("Index out of range. Index: $index, Total segments: " .
-                                               count($this->segments));
+                count($this->segments));
         }
 
         if ($index === 0) {
             $this->resetCtrl($segment);
             array_unshift($this->segments, $segment);
-        }
-        elseif ($index === count($this->segments)) {
+        } elseif ($index === count($this->segments)) {
             $this->segments[] = $segment;
-        }
-        else {
+        } else {
             $this->segments =
                 array_merge(
                     array_slice($this->segments, 0, $index),
@@ -328,10 +321,10 @@ class Message
             $this->fieldSeparator = $segment->getField(1);
         }
 
-        if (preg_match('/(.)(.)(.)(.)/', (string) $segment->getField(2), $matches)) {
-            $this->componentSeparator    = $matches[1];
-            $this->repetitionSeparator   = $matches[2];
-            $this->escapeChar            = $matches[3];
+        if (preg_match('/(.)(.)(.)(.)/', (string)$segment->getField(2), $matches)) {
+            $this->componentSeparator = $matches[1];
+            $this->repetitionSeparator = $matches[2];
+            $this->escapeChar = $matches[3];
             $this->subcomponentSeparator = $matches[4];
         }
 
@@ -353,8 +346,8 @@ class Message
     }
 
     /**
-    * Search if segment exist
-    */
+     * Search if segment exist
+     */
     public function hasSegment(string $segment): bool
     {
         return count($this->getSegmentsByName(strtoupper($segment))) > 0;
@@ -397,6 +390,7 @@ class Message
 
     /**
      * Convert Segment object to string
+     *
      * @param $seg
      * @return string
      */
@@ -458,8 +452,8 @@ class Message
             ? 0
             : PREG_SPLIT_NO_EMPTY;
 
-        if ((strpos($field, $this->repetitionSeparator) !== false) && (! $this->doNotSplitRepetition)) {
-            $components = preg_split("/\\".$this->repetitionSeparator.'/', $field, -1, $pregFlags);
+        if ((strpos($field, $this->repetitionSeparator) !== false) && (!$this->doNotSplitRepetition)) {
+            $components = preg_split("/\\" . $this->repetitionSeparator . '/', $field, -1, $pregFlags);
             $fields = [];
             foreach ($components as $index => $component) {
                 $fields[$index] = $this->extractComponentsFromFields($component, $keepEmptySubFields);

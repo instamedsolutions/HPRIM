@@ -14,7 +14,7 @@ A PHP-based HPRIM v2.x Parsing and Generating library, inspired by Net-HL7 packa
 ## Installation
 
 ```bash
-composer require Akarah/hprim
+composer require akarah/hprim
 ```
 
 ## Usage

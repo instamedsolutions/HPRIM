@@ -6,7 +6,7 @@ use Akarah\HPRIM\Segment;
 
 /**
  * P ( Patient ID) HPRIM segment class
-*/
+ */
 class P extends Segment
 {
     /**
@@ -24,7 +24,7 @@ class P extends Segment
         //2 : F
         //3 F
         //4 F
-        //5 Nom^NomFamille 
+        //5 Nom^NomFamille
         //6 BirthDate
         //7 : Sexe ( M or F)
         //8 : F
@@ -33,7 +33,7 @@ class P extends Segment
         //11 : téléphone
         //12 : F
         //13 : F
-        //14 : F 
+        //14 : F
         //15 : Taille
         //16 : Poids
         //17 : Comment
@@ -70,18 +70,18 @@ class P extends Segment
 
     // GETTER AND SETTER OK IN P SEGMENT
 
-    //SETTER FUNCTIONS 
+    //SETTER FUNCTIONS
     public function setNameInP($value, int $position = 6)
     {
         return $this->setField($position, $value);
     }
 
-    public function setBirthDateInP($value, int $position = 7)
+    public function setBirthDateInP($value, int $position = 8)
     {
         return $this->setField($position, $value);
     }
 
-    public function setSexeInP($value, int $position = 8)
+    public function setSexeInP($value, int $position = 9)
     {
         return $this->setField($position, $value);
     }
@@ -117,12 +117,12 @@ class P extends Segment
         return $this->getField($position);
     }
 
-    public function getBirthDateInP(int $position = 7)
+    public function getBirthDateInP(int $position = 8)
     {
         return $this->getField($position);
     }
 
-    public function getSexeInP(int $position = 8)
+    public function getSexeInP(int $position = 9)
     {
         return $this->getField($position);
     }
